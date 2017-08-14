@@ -1,7 +1,28 @@
-package main.java.com.simplecalculator;
+package com.simplecalculator;
 
+/**
+ * Подсчет количества тайлов которые надо заменить,
+ * чтобы дойти до готовой руки.
+ */
 public class Shanten {
-    
+
+    /**
+     * Хранит руку в таком формате:
+     * 0: разделитель;
+     * 1-9: тайлы ман;
+     * 10: разделитель;
+     * 11-19: тайлы пин;
+     * 20: разделитель;
+     * 21-29: тайлы соу;
+     * 30: разделитель;
+     * 31: 東 (восток)
+     * 32: 南 (юг)
+     * 33: 西 (запад)
+     * 34: 北 (север)
+     * 35: 白 (белый дракон)
+     * 36: 発 (зелёный дракон)
+     * 37: 中 (красный дракон)
+     */
     private int[] hand;
     private int sets;  // Количество сетов
     private int forms; // Количество форм
@@ -15,13 +36,13 @@ public class Shanten {
     
     public int calculateShanten() {
         int normal = normal();
-        int kokushi = kokushi();
-        int chiitoi = chiitoi();
+        int thirteenOrphans = thirteenOrphans();
+        int sevenPairs = sevenPairs();
         
-        return Math.min(chiitoi, Math.min(kokushi, normal));
+        return Math.min(sevenPairs, Math.min(thirteenOrphans, normal));
     }
     
-    private int kokushi() {
+    private int thirteenOrphans() {
         int kokushiPair = 0;
         int shanten = 13;
         
@@ -55,7 +76,7 @@ public class Shanten {
         return shanten;
     }
     
-    private int chiitoi() {
+    private int sevenPairs() {
         int types = 0;
         int pairs = 0;
         
