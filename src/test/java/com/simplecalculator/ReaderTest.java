@@ -36,7 +36,7 @@ public class ReaderTest {
         assertEquals("[0, 0, 1, 0, 0, 2, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1]",
                 Arrays.toString(hand.getHand()));
 
-        Hand hand1 = new Hand("111999m111999p11s");
+        Reader hand1 = new Reader("111999m111999p11s");
         hand1.convertStringToSpecialArray();
         assertEquals("[0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
                 Arrays.toString(hand1.getHand()));
