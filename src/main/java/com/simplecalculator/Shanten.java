@@ -6,35 +6,17 @@ package com.simplecalculator;
  */
 public class Shanten {
 
-    /**
-     * Хранит руку в таком формате:
-     * 0: разделитель;
-     * 1-9: тайлы ман;
-     * 10: разделитель;
-     * 11-19: тайлы пин;
-     * 20: разделитель;
-     * 21-29: тайлы соу;
-     * 30: разделитель;
-     * 31: 東 (восток)
-     * 32: 南 (юг)
-     * 33: 西 (запад)
-     * 34: 北 (север)
-     * 35: 白 (белый дракон)
-     * 36: 発 (зелёный дракон)
-     * 37: 中 (красный дракон)
-     */
     private int[] hand;
     private int sets;  // Количество сетов
     private int forms; // Количество форм
     private int pairs; // Количество пар
-
     private int shantenNormalHand; 
     
-    public Shanten(int[] hand) {
-        this.hand = hand;
+    public Shanten(Hand hand) {
+        this.hand = hand.getHand();
     }
     
-    public int calculateShanten() {
+    public int calculate() {
         int normal = normal();
         int thirteenOrphans = thirteenOrphans();
         int sevenPairs = sevenPairs();

@@ -1,4 +1,4 @@
-package com.simplecalculator;
+package main.java.com.simplecalculator;
 
 /**
  * Написать простой калькулятор для подсчета кол-во шантен
