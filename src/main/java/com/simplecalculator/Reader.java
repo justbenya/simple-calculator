@@ -23,21 +23,20 @@ public class Reader {
 
     public Reader(String stringHand) {
         this.stringHand = stringHand;
-//        convertStringToSpecialArray();
+        convertStringToSpecialArray();
     }
 
+    /**
+     * Конвертируем строку виду 123m123p123s11z
+     * в массив [0,2,1,1...]
+     */
     public void convertStringToSpecialArray() {
-//        String[] suites = foundTilesInSuits();
+        String[] suites = foundTilesInSuits();
 
-        this.m = cut("m"); System.out.println("m "+this.m );
-        this.p = cut("p"); System.out.println("p "+ this.p );
-        this.s = cut("s"); System.out.println("s "+this.s );
-        this.z = cut("z"); System.out.println("z "+this.z );
-
-        int[] man = createArray(this.m);
-        int[] pin = createArray(this.p);
-        int[] sou = createArray(this.s);
-        int[] hon = createArray(this.z);
+        int[] man = createArray(suites[0]);
+        int[] pin = createArray(suites[1]);
+        int[] sou = createArray(suites[2]);
+        int[] hon = createArray(suites[3]);
 
         int[] allSuitsTogether = new int[38];
 
@@ -63,24 +62,10 @@ public class Reader {
         hand = allSuitsTogether;
     }
 
-    String m = "", s = "", p = "", z = "";
-    public String cut(String suit) {
-        String tiles ;
-        if (this.stringHand.contains(suit)) {
-            int beginIndex = m.length() + p.length() + s.length();
-            int lastIndex = this.stringHand.indexOf(suit);
-            return this.stringHand.substring(beginIndex, lastIndex).replaceAll("[a-z]","");
-        }
-        return "";
-    }
-
-    public void taker() {
-        this.m = cut("m");
-        this.s = cut("s");
-        this.p = cut("p");
-        this.z = cut("z");
-    }
-
+    /**
+     * Делим строку на части по мастям
+     * @return массив состоящий из 4 частей(по мастям)
+     */
     public String[] foundTilesInSuits() {
         // Изначальный размер строки 0
         String m = "", s = "", p = "", z = "";
